@@ -8,3 +8,12 @@ export const getFileTree = async () => {
         console.log(error);
     }
 };
+
+export const getFileData = async (id) => {
+    try {
+        const response = await api.get(`/files/${id}`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};

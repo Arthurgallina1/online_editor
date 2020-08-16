@@ -12,13 +12,12 @@ export const FolderContainer = styled.div`
 export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
-    background: #373a47;
+    background: transparent;
     /* padding: 7px 14px; */
     color: #eee;
 `;
 
 export const Collapsable = styled.div`
-    border: 3px solid green;
-    visibility: ${(props) => (props.isOpen ? "block" : "hidden")};
-    /* height: ${(props) => (props.isOpen ? "160px" : "0")}; */
+    height: ${(props) => (props.isOpen ? "auto" : "0")};
+    overflow: hidden;
 `;

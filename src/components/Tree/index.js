@@ -5,7 +5,6 @@ import File from "../File";
 import TreeRecursive from "../TreeRecursive";
 
 export default function Tree({ data, children }) {
-    console.debug("data", data);
     const isTree = data && !children;
     return (
         <HeaderContainer>

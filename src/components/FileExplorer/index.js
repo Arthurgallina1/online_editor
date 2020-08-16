@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FileContainer, Header, Folders } from "./styles";
-import { getFileTree } from "../../services/filesService";
 import File from "../File";
 import Tree from "../Tree";
 
-export default function FileExplorer() {
-    const [fileTree, setFileTree] = useState([]);
-
-    useEffect(() => {
-        async function mountComponent() {
-            const response = await getFileTree();
-            setFileTree(response.data);
-        }
-        mountComponent();
-    }, []);
-
+export default function FileExplorer({ fileTree }) {
     return (
         <FileContainer>
             <Header>

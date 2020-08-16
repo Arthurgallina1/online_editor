@@ -6,7 +6,7 @@ export const FolderContainer = styled.div`
     /* justify-content: center; */
     align-items: center;
     margin-left: 10px;
-
+    cursor: pointer;
     span {
         margin-left: 8px;
     }

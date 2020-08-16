@@ -17,3 +17,21 @@ export const getFileData = async (id) => {
         console.log(error);
     }
 };
+
+export const updateFileData = async (file) => {
+    try {
+        const response = await api.put(`/files/${file.id}`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const deleteFile = async (id) => {
+    try {
+        const response = await api.delete(`/files/${id}`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};

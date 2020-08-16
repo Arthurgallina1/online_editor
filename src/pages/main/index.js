@@ -8,7 +8,8 @@ import { AppContext } from "../../utils/context";
 
 function App() {
     const [fileTree, setFileTree] = useState([]);
-    const [openFile, setOpenFile] = useState([]);
+    const [openFile, setOpenFile] = useState(null);
+    const [isEditting, setIsEditting] = useState(false);
 
     useEffect(() => {
         async function mountComponent() {
@@ -20,10 +21,12 @@ function App() {
 
     return (
         <Container>
-            <AppContext.Provider value={{ openFile, setOpenFile }}>
+            <AppContext.Provider
+                value={{ openFile, setOpenFile, isEditting, setIsEditting }}
+            >
                 <Navbar />
                 <FileExplorer fileTree={fileTree} />
-                <TextEditor openFile={openFile} />
+                <TextEditor />
             </AppContext.Provider>
         </Container>
     );

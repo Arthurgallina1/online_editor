@@ -8,11 +8,18 @@ export const TextContainer = styled.div`
 
 export const FileTab = styled.div`
     background: #373a47;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-top: 2px solid #ffa500;
     /* width: 15%; */
     padding: 10px 20px;
     color: #eee;
     font-size: 12px;
+
+    svg {
+        margin-left: 8px;
+    }
 `;
 
 export const TabCont = styled.div`
@@ -23,4 +30,47 @@ export const TabCont = styled.div`
 export const TextArea = styled.div`
     color: #eee;
     padding: 10px;
+`;
+
+export const TextAreaInput = styled.textarea`
+    background: transparent;
+    border: 0;
+    width: 100%;
+    color: #eee;
+    height: 90vh;
+`;
+
+export const PopUpContainer = styled.div`
+    background: orange;
+    padding: 12px;
+    color: white;
+
+    span {
+        font-weight: bold;
+    }
+`;
+
+export const Button = styled.button`
+    background: ${(props) => (props.secondary ? "orange" : "#eee")};
+    color: ${(props) => (props.secondary ? "#eee" : "orange")};
+    border: ${(props) => (props.secondary ? "#eee" : "orange")} 1px solid;
+    padding: 7px 14px;
+    margin-left: 12px;
+    border-radius: 8px;
+`;
+
+export const ButtonsContainer = styled.div`
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        margin-left: 15px;
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+        }
+    }
 `;

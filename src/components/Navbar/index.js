@@ -8,9 +8,6 @@ export default function Navbar() {
             <IconContainer active>
                 <GoFileSubmodule size={24} color={"#EEE"} />
             </IconContainer>
-            <IconContainer>
-                <GoSearch size={24} color={"#EEE"} />
-            </IconContainer>
         </NavContainer>
     );
 }

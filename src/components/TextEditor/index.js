@@ -25,19 +25,27 @@ export default function TextEditor() {
     const [showPopUp, setShowPopUp] = useState(false);
     const [popUpMsg, setPopUpMsg] = useState("");
 
-    const { setOpenFile, openFile, isEditting, setIsEditting } = useContext(
-        AppContext
-    );
+    const {
+        setOpenFile,
+        openFile,
+        isEditting,
+        setIsEditting,
+        files,
+        setFiles,
+        fileTree,
+        setFileTree,
+    } = useContext(AppContext);
 
     useEffect(() => {
         async function getFile() {
             try {
-                const response = await getFileData(openFile.id);
-                setContent(response.data.content);
+                // const response = await getFileData(openFile.id);
+                const file = files.find((file) => file.id === openFile.id);
+                setContent(file.content);
             } catch (err) {}
         }
         getFile();
-    }, [openFile]);
+    }, [openFile, files]);
 
     const handleUnsavedClose = () => {
         setPopUpMsg(
@@ -49,6 +57,13 @@ export default function TextEditor() {
     const handleSave = async () => {
         try {
             const updatedFile = { ...openFile, content: content };
+            const updatedFiles = files.map((file) =>
+                file.id === openFile.id
+                    ? Object.assign({}, file, { content })
+                    : file
+            );
+            // console.debug("updatedFIle", updatedFiles);
+            setFiles(updatedFiles);
             await updateFileData(updatedFile);
             setShowPopUp(false);
             setIsEditting(false);
@@ -59,10 +74,26 @@ export default function TextEditor() {
         setShowPopUp(false);
     };
 
+    function filterObject(obj, fileId) {
+        for (var i in obj) {
+            if (!obj.hasOwnProperty(i)) continue;
+            if (typeof obj[i] == "object") {
+                filterObject(obj[i], fileId);
+            } else if (obj[i] === fileId) {
+                delete obj["id"];
+                delete obj["name"];
+                delete obj["isDirectory"];
+            }
+        }
+        return obj;
+    }
+
     const handleDelete = async () => {
         try {
             const fileId = openFile.id;
             await deleteFile(fileId);
+            const updatedFileTree = filterObject(fileTree, openFile.id);
+            setFileTree(updatedFileTree);
             setShowPopUp(false);
             setIsEditting(false);
             setOpenFile("");

@@ -7,7 +7,11 @@ export default function TreeRecursive({ data }) {
         data &&
         data.map((item) => {
             if (!item.isDirectory) {
-                return <File name={item.name} key={item.id} id={item.id} />;
+                return (
+                    item.name && (
+                        <File name={item.name} key={item.id} id={item.id} />
+                    )
+                );
             } else {
                 return (
                     <Folder name={item.name} key={item.id}>

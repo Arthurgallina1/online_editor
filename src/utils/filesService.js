@@ -9,6 +9,15 @@ export const getFileTree = async () => {
     }
 };
 
+export const getFiles = async () => {
+    try {
+        const response = await api.get("/files");
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const getFileData = async (id) => {
     try {
         const response = await api.get(`/files/${id}`);

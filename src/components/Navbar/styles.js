@@ -5,9 +5,9 @@ export const NavContainer = styled.div`
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    padding: 25px 0;
+    padding: 0;
     background: #373a47;
-    width: 6%;
+    width: 5%;
     color: #eeeeee;
     border-right: 1px solid #1f2026;
 

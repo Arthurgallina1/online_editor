@@ -170,7 +170,7 @@ export default function TextEditor() {
                     <NoOpenFileContainer>
                         <FaEdit size={48} color={"#ccc"} />
                         <div className='commands'>
-                            <h3>Welcome to A+ Text Editor</h3>
+                            <h3>Welcome to A+ Online Editor</h3>
                             <h5>
                                 You can navigate through files using our
                                 explorer.
@@ -181,7 +181,7 @@ export default function TextEditor() {
                             </h5>
                             <h5>
                                 Since we really think you should focus you can
-                                only open one file at once.
+                                only open one file at once :P
                             </h5>
                         </div>
                     </NoOpenFileContainer>

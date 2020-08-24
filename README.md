@@ -10,8 +10,9 @@
 > An Online Responsive Code Editor that only let you open one file at once so you can focus better. 
 
 It's important to mention that this is an assignment for a job application **only**.
-<p align="center">
-   
+
+---
+
 * <p> Desktop </p>
  <img src="/src/assets/desktop.png" width="400" height="250" border="0" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
@@ -20,8 +21,6 @@ It's important to mention that this is an assignment for a job application **onl
 * <p> Mobile </p>
  <img src="/src/assets/mobile.png" width="250" height="400" border="0" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
-
----
 
 # :pushpin: Table of Contents
 
@@ -42,9 +41,7 @@ It's important to mention that this is an assignment for a job application **onl
 
 **You need to install [Node.js](https://nodejs.org/en/download/), [Yarn](https://yarnpkg.com/) and then clone the project via HTTPS, running this command:**
 
-```git clone https://github.com/
-
-gallina1/online_editor.git```
+```git clone https://github.com/Arthurgallina1/online_editor.git```
 
 **Install dependencies**
 

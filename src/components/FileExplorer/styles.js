@@ -4,6 +4,12 @@ export const FileContainer = styled.div`
     width: 25%;
     background: #1f2026;
     height: 100vh;
+
+    @media (max-width: 660px) {
+        width: 100%;
+        height: 15vh;
+        overflow-y: scroll;
+    }
 `;
 
 export const Header = styled.div`

@@ -14,6 +14,13 @@ export const NavContainer = styled.div`
     svg {
         cursor: pointer;
     }
+
+    @media (max-width: 660px) {
+        width: 100%;
+        height: 12vh;
+        /* flex-direction: column; */
+        /* position: relative; */
+    }
 `;
 
 export const IconContainer = styled.div`
@@ -24,4 +31,9 @@ export const IconContainer = styled.div`
         props.active ? "2px solid orange" : "2px solid transparent"};
     height: 60px;
     width: 100%;
+    @media (max-width: 660px) {
+        border-bottom: ${(props) =>
+            props.active ? "2px solid orange" : "2px solid transparent"};
+        border-left: 0;
+    }
 `;

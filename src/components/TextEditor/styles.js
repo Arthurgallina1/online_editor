@@ -4,6 +4,13 @@ export const TextContainer = styled.div`
     padding: 0;
     background: #373a47;
     width: 70%;
+
+    @media (max-width: 660px) {
+        padding-top: 5px;
+        width: 100%;
+        height: 77vh;
+        overflow-y: scroll;
+    }
 `;
 
 export const FileTab = styled.div`

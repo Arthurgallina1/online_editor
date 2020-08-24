@@ -59,20 +59,21 @@ export default function FileExplorer({ fileTree }) {
                                 click to open.
                             </h5>
                         )}
-                        {showFiles.map((file) => (
-                            <div
-                                onClick={() =>
-                                    setOpenFile({
-                                        name: file.name,
-                                        id: file.id,
-                                    })
-                                }
-                                className='items-list'
-                            >
-                                <DiJava size={20} color={"#eee"} />
-                                {file.name}
-                            </div>
-                        ))}
+                        {filter.length > 0 &&
+                            showFiles.map((file) => (
+                                <div
+                                    onClick={() =>
+                                        setOpenFile({
+                                            name: file.name,
+                                            id: file.id,
+                                        })
+                                    }
+                                    className='items-list'
+                                >
+                                    <DiJava size={20} color={"#eee"} />
+                                    {file.name}
+                                </div>
+                            ))}
                     </OptionsBox>
                 </SearchBox>
             )}

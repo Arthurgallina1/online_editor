@@ -81,6 +81,7 @@ export default function TextEditor() {
 
     const handleClose = () => {
         setShowPopUp(false);
+        setIsEditting(false);
         setOpenFile("");
     };
 

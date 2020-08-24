@@ -10,6 +10,7 @@ function App() {
     const [fileTree, setFileTree] = useState([]);
     const [openFile, setOpenFile] = useState(null);
     const [isEditting, setIsEditting] = useState(false);
+    const [activeItemNav, setActiveItemNav] = useState("EXPLORER");
     const [files, setFiles] = useState([]);
 
     useEffect(() => {
@@ -34,6 +35,8 @@ function App() {
                     setFiles,
                     fileTree,
                     setFileTree,
+                    activeItemNav,
+                    setActiveItemNav,
                 }}
             >
                 <Navbar />

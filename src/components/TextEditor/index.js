@@ -12,6 +12,7 @@ import {
     PopUpContainer,
     Button,
     ButtonsContainer,
+    NoOpenFileContainer,
 } from "./styles";
 import { AppContext } from "../../utils/context";
 import {
@@ -24,6 +25,7 @@ export default function TextEditor() {
     const [content, setContent] = useState("");
     const [showPopUp, setShowPopUp] = useState(false);
     const [popUpMsg, setPopUpMsg] = useState("");
+    const [action, setAction] = useState("");
 
     const {
         setOpenFile,
@@ -49,8 +51,15 @@ export default function TextEditor() {
 
     const handleUnsavedClose = () => {
         setPopUpMsg(
-            `Do you want to save changes you made to ${openFile.name}?`
+            `Do you want to save changes you made to ${openFile.name} before closing?`
         );
+        setAction("save");
+        setShowPopUp(true);
+    };
+
+    const handleDeleteDialog = () => {
+        setPopUpMsg(`Do you want to delete ${openFile.name}?`);
+        setAction("delete");
         setShowPopUp(true);
     };
 
@@ -72,11 +81,11 @@ export default function TextEditor() {
 
     const handleClose = () => {
         setShowPopUp(false);
+        setOpenFile("");
     };
 
     function filterObject(obj, fileId) {
         for (var i in obj) {
-            if (!obj.hasOwnProperty(i)) continue;
             if (typeof obj[i] == "object") {
                 filterObject(obj[i], fileId);
             } else if (obj[i] === fileId) {
@@ -129,7 +138,7 @@ export default function TextEditor() {
                         <MdDelete
                             size={18}
                             color={"#eee"}
-                            onClick={handleDelete}
+                            onClick={handleDeleteDialog}
                         />
                     </ButtonsContainer>
                 </TabCont>
@@ -137,7 +146,11 @@ export default function TextEditor() {
             {showPopUp && (
                 <PopUpContainer>
                     <span>{popUpMsg}</span>
-                    <Button onClick={handleSave}>Save</Button>
+                    {action === "save" ? (
+                        <Button onClick={handleSave}>Save</Button>
+                    ) : (
+                        <Button onClick={handleDelete}>Delete</Button>
+                    )}
                     <Button secondary onClick={handleClose}>
                         Close
                     </Button>
@@ -153,7 +166,24 @@ export default function TextEditor() {
                         }}
                     />
                 ) : (
-                    <FaEdit size={20} color={"#ddd"} />
+                    <NoOpenFileContainer>
+                        <FaEdit size={48} color={"#ccc"} />
+                        <div className='commands'>
+                            <h3>Welcome to A+ Text Editor</h3>
+                            <h5>
+                                You can navigate through files using our
+                                explorer.
+                            </h5>
+                            <h5>
+                                If you want to search you can you can use our
+                                search tool.
+                            </h5>
+                            <h5>
+                                Since we really think you should focus you can
+                                only open one file at once.
+                            </h5>
+                        </div>
+                    </NoOpenFileContainer>
                 )}
             </TextArea>
         </TextContainer>

@@ -20,7 +20,8 @@ export const IconContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: ${(props) => (props.active ? "2px solid orange" : "")};
+    border-left: ${(props) =>
+        props.active ? "2px solid orange" : "2px solid transparent"};
     height: 60px;
     width: 100%;
 `;

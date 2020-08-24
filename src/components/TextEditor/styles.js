@@ -49,6 +49,30 @@ export const PopUpContainer = styled.div`
         font-weight: bold;
     }
 `;
+export const NoOpenFileContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+    .commands {
+        margin-top: 15px;
+        width: 450px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        h3 {
+            margin-bottom: 30px;
+        }
+        h5 {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+    }
+`;
 
 export const Button = styled.button`
     background: ${(props) => (props.secondary ? "orange" : "#eee")};
